@@ -1,0 +1,17 @@
+{
+  "id": "bubble-shooter",
+  "title": "Bubble Shooter",
+  "description": "Aim colorful bubbles to clear matching clusters and drop disconnected groups.",
+  "category": "Arcade",
+  "instructions": "Move the mouse to aim and click to launch a bubble. Match three or more of one color.",
+  "repository": "https://github.com/rembound/Bubble-Shooter-HTML5",
+  "license": "GPL-3.0-or-later (game JS); MIT (repository assets)",
+  "localEntry": "bubble-shooter.html",
+  "authors": "Rembound.com",
+  "revision": "2e62806ef5d7471f77566bc1cf6f2ac17a584c4d",
+  "licenseNotes": "The repository LICENSE is MIT, while bubble-shooter-example.js expressly specifies GPL-3.0-or-later. Both notices are retained. Original bubble sprite sheet is supplied in the MIT repository.",
+  "modifications": "Added a descriptive page title and centered the game on a dark background.",
+  "buildRequired": false,
+  "backendRequired": false,
+  "minimumWidth": 628
+}

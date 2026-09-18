@@ -1,0 +1,17 @@
+{
+  "id": "tetris",
+  "title": "JavaScript Tetris",
+  "description": "Fit falling tetrominoes together and clear complete horizontal rows.",
+  "category": "Puzzle",
+  "instructions": "Press Space to begin. Left and right move, Up rotates, Down drops faster, Escape ends the round.",
+  "repository": "https://github.com/jakesgordon/javascript-tetris",
+  "license": "MIT",
+  "localEntry": "index.html",
+  "authors": "Jake Gordon and contributors",
+  "revision": "e5c0c42f7dac0f3514a55eff656c6e22e95d68ed",
+  "licenseNotes": "Bundled texture is under repository MIT license. Stats.js: MIT, notice included.",
+  "modifications": "No gameplay changes.",
+  "buildRequired": false,
+  "backendRequired": false,
+  "minimumWidth": 0
+}

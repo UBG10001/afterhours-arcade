@@ -1,0 +1,17 @@
+{
+  "id": "radius-raid",
+  "title": "Radius Raid",
+  "description": "Survive swarms of enemies in a neon space arena with powerups and escalating waves.",
+  "category": "Action",
+  "instructions": "Move with WASD or arrow keys. Aim and fire with the mouse. F toggles autofire, P pauses, M mutes.",
+  "repository": "https://github.com/jackrugile/radius-raid-js13k",
+  "license": "MIT",
+  "localEntry": "index.html",
+  "authors": "Jack Rugile",
+  "revision": "361ab5166570cfc8a29a4fc15c9afba566117b66",
+  "licenseNotes": "Original visuals and audio are procedurally generated. JSFXR audio synthesizer: Apache-2.0, license included.",
+  "modifications": "No gameplay changes.",
+  "buildRequired": false,
+  "backendRequired": false,
+  "minimumWidth": 0
+}

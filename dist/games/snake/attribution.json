@@ -1,0 +1,17 @@
+{
+  "id": "snake",
+  "title": "Snake",
+  "description": "Collect apples, grow longer, and avoid running into the walls or yourself.",
+  "category": "Arcade",
+  "instructions": "Press any key to start, then use the arrow keys to steer.",
+  "repository": "https://github.com/rembound/Snake-Game-HTML5",
+  "license": "GPL-3.0-or-later (game JS); MIT (repository assets)",
+  "localEntry": "snake.html",
+  "authors": "Rembound.com",
+  "revision": "91030dd3cbec5b88fd67887ce6a51e4f108eeed0",
+  "licenseNotes": "The repository LICENSE is MIT, while snake.js expressly specifies GPL-3.0-or-later. Both notices are retained. Sprite sheet is provided in the original MIT repository.",
+  "modifications": "Added a descriptive page title and centered the game on a dark background.",
+  "buildRequired": false,
+  "backendRequired": false,
+  "minimumWidth": 640
+}

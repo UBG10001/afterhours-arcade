@@ -1,0 +1,17 @@
+{
+  "id": "2048",
+  "title": "2048",
+  "description": "Slide and merge matching numbered tiles to reach 2048.",
+  "category": "Puzzle",
+  "instructions": "Use the arrow keys, WASD, or swipe to slide all tiles. Matching numbers merge.",
+  "repository": "https://github.com/gabrielecirulli/2048",
+  "license": "MIT",
+  "localEntry": "index.html",
+  "authors": "Gabriele Cirulli",
+  "revision": "478b6ec346e3787f589e4af751378d06ded4cbbc",
+  "licenseNotes": "Clear Sans font: Apache-2.0. Original font notice and license included.",
+  "modifications": "Replaced the upstream official-site claim with an accurate locally hosted edition note.",
+  "buildRequired": false,
+  "backendRequired": false,
+  "minimumWidth": 0
+}

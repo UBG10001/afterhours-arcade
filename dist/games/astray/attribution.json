@@ -1,0 +1,17 @@
+{
+  "id": "astray",
+  "title": "Astray",
+  "description": "Guide a rolling ball through an expanding 3D maze.",
+  "category": "Maze",
+  "instructions": "Use the arrow keys to move the ball and find the exit. Hold I for instructions.",
+  "repository": "https://github.com/wwwtyro/Astray",
+  "license": "Unlicense",
+  "localEntry": "index.html",
+  "authors": "Rye Terrell (wwwtyro)",
+  "revision": "d3c4f61f2cbbe35752fbfa205f85a41d7f9fe0f0",
+  "licenseNotes": "Bundled original textures covered by repository Unlicense. Three.js and jQuery: MIT; Box2DWeb: Zlib; KeyboardJS v0.4.2: BSD-2-Clause.",
+  "modifications": "Changed texture URLs from absolute root paths to relative paths for subdirectory hosting; added a page title.",
+  "buildRequired": false,
+  "backendRequired": false,
+  "minimumWidth": 0
+}

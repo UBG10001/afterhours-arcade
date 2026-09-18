@@ -1,0 +1,17 @@
+{
+  "id": "match-3",
+  "title": "Match-3",
+  "description": "Swap colorful tiles to make lines of three or more and trigger cascading matches.",
+  "category": "Puzzle",
+  "instructions": "Click or drag adjacent tiles to swap them. Show Moves reveals hints. New Game resets the board.",
+  "repository": "https://github.com/rembound/Match-3-Game-HTML5",
+  "license": "GPL-3.0-or-later (game JS); MIT (repository assets)",
+  "localEntry": "match3.html",
+  "authors": "Rembound.com",
+  "revision": "be7df47403668623ed40073fa87d39d9b4c7da2d",
+  "licenseNotes": "The repository LICENSE is MIT, while match3-example.js expressly specifies GPL-3.0-or-later. Both notices are retained. All game visuals are procedural.",
+  "modifications": "Added a descriptive page title and centered the game on a dark background.",
+  "buildRequired": false,
+  "backendRequired": false,
+  "minimumWidth": 640
+}

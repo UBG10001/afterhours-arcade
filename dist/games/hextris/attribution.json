@@ -1,0 +1,17 @@
+{
+  "id": "hextris",
+  "title": "Hextris",
+  "description": "Rotate a hexagon and match falling colored blocks before the stack reaches the edge.",
+  "category": "Arcade",
+  "instructions": "Click Play. Use the left and right arrows to rotate; match at least three blocks of one color. Touch either side on mobile.",
+  "repository": "https://github.com/attogram/hextris-lite",
+  "license": "GPL-3.0-or-later",
+  "localEntry": "index.html",
+  "authors": "Logan Engstrom, Garrett Finucane, Noah Moroze, Michael Yang; Lite edition by Attogram",
+  "revision": "a55bf9f3c6137e51a9ef919b7cd5e2dd565ef6b7",
+  "licenseNotes": "Font Awesome font: OFL-1.1; CSS: MIT. Hammer, jQuery, js-cookie, JSONfn and SweetAlert: MIT. Keypress: Apache-2.0.",
+  "modifications": "Fixed an upstream text-size concatenation bug (14220px instead of 142px) and use Arial as a local font fallback.",
+  "buildRequired": false,
+  "backendRequired": false,
+  "minimumWidth": 0
+}
