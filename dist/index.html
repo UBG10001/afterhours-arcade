@@ -2,34 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#121417">
-  <meta name="description" content="A browser arcade with Snow Rider 3D, Slope, and a huge collection of games. Find your next favorite and play fullscreen.">
-  <title>Afterhours — Your next high score</title>
+  <meta name="theme-color" content="#101113">
+  <meta name="description" content="Snow Rider 3D, Slope, Run 3, and more. Find a game and play.">
+  <title>Afterhours — Play</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23c5f568'/%3E%3Cpath d='M35 9 17 35h13l-2 20 20-29H34Z' fill='%23121417'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=github-1"><script src="launcher.js?v=launch-1" defer></script><script src="app.js?v=github-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=play-2">
+  <script src="launcher.js?v=play-2" defer></script><script src="app.js?v=play-2" defer></script>
 </head>
 <body>
 <a class="skip" href="#library">Skip to games</a>
-<aside class="sidebar">
-  <a class="brand" href="./" aria-label="Afterhours home"><span class="brand-mark">ϟ</span><span>afterhours<span class="brand-dot">.</span></span></a>
-  <div class="side-label">YOUR ARCADE</div>
-  <nav aria-label="Library"><button class="nav-item active" data-view="local"><span>▦</span> GitHub games <b id="side-count">…</b></button><button class="nav-item" data-view="favorites"><span>♡</span> Favorites <b id="fav-count">0</b></button><button class="nav-item" data-view="recent"><span>◷</span> Recently played</button><button class="nav-item" data-view="external"><span>↗</span> External games <b id="external-count">…</b></button></nav>
-  <div class="side-label category-label">FIND YOUR GAME</div><nav id="side-categories" aria-label="Game categories"></nav>
-  <div class="sidebar-bottom"><div class="tiny-brand">PLAY. REPEAT.</div><p>One more game?</p><button class="random-side" id="random-side">Surprise me <span>↗</span></button><a class="credits-link" href="credits.html">Game credits & sources</a></div>
-</aside>
-<div class="workspace">
-  <header class="topbar"><div class="breadcrumb">The arcade <span>/</span> <strong id="crumb">GitHub games</strong></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search games…" autocomplete="off" aria-label="Search games"><kbd>/</kbd></label><button class="icon-button" id="random" aria-label="Play a random game" title="Play a random game">⚄</button></header>
-  <main id="main">
-    <section id="featured" class="featured-section" aria-label="Featured games"><div class="section-line"><span class="eyebrow">THE ROTATION</span><span class="muted">Worth another run</span></div><div class="featured-grid" id="featured-grid"></div></section>
-    <section id="library" tabindex="-1"><div class="library-heading"><div><div class="eyebrow">PICK YOUR NEXT OBSESSION</div><h1 id="view-title">GitHub games <span id="total-count"></span></h1></div><label class="sort-label">Sort by <select id="sort" aria-label="Sort games"><option value="featured">Featured</option><option value="az">A–Z</option><option value="za">Z–A</option></select></label></div><p id="hosting-note" class="hosting-note">Game files hosted on GitHub Pages.</p>
-    <div id="category-tabs" class="category-tabs" aria-label="Filter by category"></div><p id="result-status" class="sr-only" aria-live="polite"></p>
-    <div class="game-grid" id="game-grid"></div><div id="empty" class="empty" hidden><div>⌕</div><h2>No games found</h2><p id="empty-description">Try another name or category.</p><button class="primary" id="reset">Show GitHub games</button></div>
-    <div class="load-more"><button id="load-more" class="secondary" hidden>Load more games</button><span id="showing"></span></div>
-    </section>
-    <footer><span><b>afterhours.</b> Built for your next high score.</span><a href="credits.html">Credits & sources ↗</a><span>Availability depends on your network.</span></footer>
-  </main>
-</div>
-<dialog id="player" aria-labelledby="player-title"><div class="player-top"><div><span class="eyebrow" id="player-category">ARCADE</span><h2 id="player-title"></h2></div><div class="player-actions"><button class="icon-button" id="player-fav" aria-label="Add to favorites">♡</button><button class="icon-button" id="reload-game" aria-label="Restart game" title="Restart game">↻</button><button class="icon-button" id="fullscreen" aria-label="Fullscreen game" title="Fullscreen game">⛶</button><button class="icon-button" id="close-player" aria-label="Close game">✕</button></div></div><div class="game-stage" id="game-stage"><div id="loading" class="game-loading"><span class="spinner"></span><p>Loading your game…</p></div><iframe id="game-frame" title="Game player" allow="autoplay; fullscreen; gamepad" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="player-info"><div><h3>How to play</h3><p id="instructions"></p><p id="description"></p></div><div class="source-actions"><a id="open-original" class="secondary" target="_blank" rel="noopener noreferrer">Open game ↗</a><span id="game-provider"></span></div></div><details class="player-help"><summary>Game not loading?</summary><p>Try restarting or opening the game in its own tab. GitHub games load their game files from GitHub Pages; some have optional ads or community features on other servers. External games need access to publisher servers. Network filters may still block either group.</p></details></dialog>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="Afterhours home"><span class="brand-mark" aria-hidden="true">ϟ</span>afterhours<span class="brand-dot">.</span></a>
+  <nav class="main-nav" aria-label="Library">
+    <button data-view="all" class="active" aria-pressed="true">Play</button>
+    <button data-view="favorites" aria-pressed="false">Favorites<span id="fav-count" hidden></span></button>
+    <button data-view="recent" aria-pressed="false">Recent</button>
+  </nav>
+  <label class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="search" type="search" placeholder="Find a game" autocomplete="off" aria-label="Search games"><kbd>/</kbd></label>
+  <button class="icon-button shuffle" id="random" aria-label="Play a random game" title="Surprise me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h3c5 0 7 12 12 12h3m-4-4 4 4-4 4M3 18h3c2 0 3-2 4-4m4-4c1-2 2-4 4-4h3m-4-4 4 4-4 4"/></svg></button>
+</header>
+<main id="library" tabindex="-1">
+  <div class="library-heading"><h1><span id="view-title">Games</span><span id="total-count" class="count"></span></h1><label class="sort-label"><span class="sr-only">Sort games</span><select id="sort" aria-label="Sort games"><option value="featured">Recommended</option><option value="az">A–Z</option><option value="za">Z–A</option></select></label></div>
+  <div id="category-tabs" class="category-tabs" aria-label="Filter by category"></div>
+  <p id="result-status" class="sr-only" aria-live="polite"></p>
+  <div class="game-grid" id="game-grid" aria-busy="true"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+  <section id="empty" class="empty" hidden><h2>No games found</h2><p id="empty-description">Try a different name.</p><button class="primary" id="reset">Show all games</button></section>
+  <div class="load-more"><button id="load-more" class="secondary" hidden>More games <span aria-hidden="true">↓</span></button></div>
+  <footer><span>afterhours.</span><a href="credits.html">Credits</a></footer>
+</main>
+<dialog id="player" aria-labelledby="player-title">
+  <div class="player-top"><button class="icon-button back-button" id="close-player" aria-label="Close game" title="Back to games"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button><h2 id="player-title"></h2><div class="player-actions"><button class="icon-button" id="player-fav" aria-label="Add to favorites" title="Favorite"></button><button class="icon-button" id="reload-game" aria-label="Restart game" title="Restart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M20 12a8 8 0 1 0-2.3 5.7"/></svg></button><button class="icon-button" id="fullscreen" aria-label="Fullscreen game" title="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5"/></svg></button></div></div>
+  <div class="game-stage" id="game-stage"><div id="loading" class="game-loading"><span class="spinner"></span><p>Loading…</p></div><iframe id="game-frame" title="Game player" allow="autoplay; fullscreen; gamepad" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="slow-load" class="slow-load" hidden>Still loading? <button id="retry-load">Try again</button><a id="slow-open" target="_blank" rel="noopener noreferrer">Open game ↗</a></div></div>
+  <div class="player-bottom"><details id="controls" class="controls"><summary>Controls <span aria-hidden="true">⌃</span></summary><div class="control-panel"><p id="instructions"></p></div></details><a id="open-original" target="_blank" rel="noopener noreferrer">Open game ↗</a></div>
+</dialog>
 <div id="toast" class="toast" role="status" hidden></div>
 <noscript><p class="noscript">Enable JavaScript to browse and play games.</p></noscript>
-</body></html>
+</body>
+</html>

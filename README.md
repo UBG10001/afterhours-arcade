@@ -1,6 +1,6 @@
 # Afterhours Arcade
 
-A responsive browser arcade with 262 games, including Snow Rider 3D and Slope. The default library has 24 GitHub-hosted games; 238 games requiring publisher servers are listed separately under External games. Features instant search, category filters, alphabetical sorting, favorites and recent history stored on the device, random game selection, and a fullscreen player.
+A responsive browser arcade with 262 games, including Snow Rider 3D and Slope. One visual library puts games first, with Play, Favorites, and Recent views; instant search; a single category row; alphabetical sorting; and random selection. Games open in a large player with fullscreen, restart, and collapsible controls. Favorites and recent history stay on the device.
 
 ## Play
 
@@ -12,15 +12,15 @@ Direct visits attempt to open a new `about:blank` tab containing a full-window i
 
 Browsers may block automatic pop-ups or refuse to close a tab they did not open. In those cases the launcher offers an explicit Open arcade button, a Play in this tab fallback, and a manual-close notice. It uses standard browser APIs and does not change browser settings, disable extensions, or guarantee filter bypass.
 
-## Game hosting
+## Games and sources
 
 Eight games are included directly with their source and license notices: 2048, Hextris Lite, Astray, Radius Raid, JavaScript Tetris, Snake, Match-3, and Bubble Shooter. These run from this site's own origin. Upstream revisions, authors, modifications, and license information are preserved in each game's `attribution.json` and `ARCADE-NOTICES.md`.
 
-Sixteen more entries open existing GitHub Pages sites, including the user's Snow Rider, Slope, Tiny Fishing, and Run 3 repositories. The GitHub library requires relative or `github.io` iframe and thumbnail URLs. Some hosted games still contain optional external ads, analytics, or community integrations. The arcade's fonts and featured artwork are served locally.
+Snow Rider 3D opens the [current developer edition](https://gamebiz.com/snow-rider-3d/), whose page declares version 4.0. GameBiz lists its classic edition separately as Nostalgia. This replaces the older GitHub copy, whose latest commit was in May 2023; it is not a claim that the developer endpoint contains the newest build across every platform. The player resizes with its window.
 
-The 238 External games entries use public GameMonetize embeds. They require access to publisher servers and may include ads or consent prompts. No proprietary publisher game files are included in this repository.
+Fifteen entries open existing GitHub Pages sites, and 238 use public GameMonetize embeds. Together with Snow Rider, these make 254 linked games alongside the eight bundled games. All appear in the same library. Some games include ads, analytics, community integrations, or consent prompts. No proprietary publisher game files are included in this repository.
 
-The arcade does not disable school extensions or guarantee access through network filters. GitHub Pages and any external game domain may still be blocked.
+The arcade's fonts and original SVG card illustrations are local; other artwork comes from the game or publisher. Game servers and this site's domain remain subject to network filtering.
 
 ## Local preview
 
@@ -32,7 +32,7 @@ Edit `dist/catalog.json`. Entries contain a unique `id`, `title`, `category`, `i
 
 ## Validation
 
-The original 240 publisher embed endpoints and thumbnail endpoints returned success when checked on September 18, 2026 UTC. Sample player flows and all eight bundled game initial loads were checked. The 16 additional GitHub Pages endpoints returned success and their source files were inspected for dependencies. Snow Rider reached its start screen with all observed resources on `github.io`. These checks do not imply a full gameplay walkthrough of every game or guarantee that optional integrations avoid external servers. Availability can change independently of this site.
+Earlier checks covered the original 240 publisher endpoints and thumbnails, initial loads of all eight bundled games, and 16 Pages endpoints, including the now-replaced Snow Rider copy. The current Snow Rider edition reached its title screen, tutorial, and a short playable run through the redesigned arcade player. This is a sampled gameplay check, not a full walkthrough or a test of two-player mode. Availability can change independently of this site.
 
 ## Licenses
 

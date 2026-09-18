@@ -20,6 +20,7 @@ for(const [id,title,category,instructions,description] of [
  ['vaporwave-escape','Vaporwave Escape','Arcade','Use arrow keys or WASD to move. Collect shapes and avoid hazards.','Collect shapes while escaping colorful hazards.']
 ]) additions.push({id:`classic-${id}`,title,category,instructions,description,embed:`https://prateek121.github.io/90s-games/games/${id}.html`,sourceUrl:'https://github.com/prateek121/90s-games',thumbnail:''});
 for(const g of additions) {
+ const card=`assets/cards/${g.id}.svg`;if(fs.existsSync(new URL(`./dist/${card}`,import.meta.url)))g.thumbnail=card;
  g.githubHosted=true;g.provider='GitHub Pages';g.hostingNote='Game core is served by an existing GitHub Pages repository. Optional integrations may request external servers.';
  const existing=games.findIndex(x=>x.id===g.id);if(existing>=0)games[existing]=g;else games.splice(2,0,g);
 }
