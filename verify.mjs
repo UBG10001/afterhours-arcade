@@ -13,6 +13,6 @@ for (const g of catalog) {
   } else if (!g.embed.startsWith('https://')) throw new Error(`Insecure game URL: ${g.id}`);
   if (g.thumbnail && !g.thumbnail.startsWith('https://') && !fs.existsSync(path.join(root,g.thumbnail))) throw new Error(`Missing thumbnail: ${g.id}`);
 }
-for (const file of ['index.html','credits.html','styles.css','app.js']) if (!fs.existsSync(path.join(root,file))) throw new Error(`Missing ${file}`);
-new vm.Script(fs.readFileSync(path.join(root,'app.js'),'utf8'));
+for (const file of ['index.html','credits.html','styles.css','app.js','launcher.js']) if (!fs.existsSync(path.join(root,file))) throw new Error(`Missing ${file}`);
+for (const file of ['app.js','launcher.js']) new vm.Script(fs.readFileSync(path.join(root,file),'utf8'));
 console.log(`Verified ${catalog.length} unique games, ${catalog.filter(g => g.local).length} local games, required files, thumbnails and arcade JavaScript.`);

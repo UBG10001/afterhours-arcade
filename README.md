@@ -6,6 +6,12 @@ A responsive browser arcade with 248 real games, including Snow Rider 3D and Slo
 
 The site is published through GitHub Pages. The `Publish arcade` workflow deploys the `dist` directory whenever `main` changes.
 
+## About:blank launcher
+
+Direct visits attempt to open a new `about:blank` tab containing a full-window iframe of the exact arcade URL, including its query and selected-game hash. The original tab attempts to close only after the framed arcade confirms that its catalog is ready. Embedded visits never launch another tab.
+
+Browsers may block automatic pop-ups or refuse to close a tab they did not open. In those cases the launcher offers an explicit Open arcade button, a Play in this tab fallback, and a manual-close notice. It uses standard browser APIs and does not change browser settings, disable extensions, or guarantee filter bypass.
+
 ## Game hosting
 
 Eight games are included directly with their source and license notices: 2048, Hextris Lite, Astray, Radius Raid, JavaScript Tetris, Snake, Match-3, and Bubble Shooter. These run from this site's own origin. Upstream revisions, authors, modifications, and license information are preserved in each game's `attribution.json` and `ARCADE-NOTICES.md`.

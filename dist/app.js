@@ -100,6 +100,7 @@
       $('featured-grid').innerHTML = features.map((g,i) => `<button class="feature" data-play="${esc(g.id)}" aria-label="Play ${esc(g.title)}">${g.thumbnail ? `<img src="${esc(g.thumbnail)}" alt="${esc(g.title)}">` : ''}<span class="feature-tag">${['IN THE SPOTLIGHT','ONE MORE RUN','ARCADE ESSENTIAL'][i]}</span><div class="feature-content"><span class="feature-play">▶</span><span class="feature-meta">${esc(g.category)} · Instant play</span><h2>${esc(g.title)}</h2></div></button>`).join('');
       render();
       const requested = new URLSearchParams(location.hash.slice(1)).get('game'); if (requested) play(requested);
+      if (window.self !== window.top) window.parent.postMessage({type:'afterhours:ready'}, location.origin);
       const context = document.modelContext;
       if (context?.registerTool) {
         try {
@@ -109,5 +110,6 @@
       }
     } catch(error) { $('game-grid').innerHTML = '<p>Couldn’t load the games. Refresh the page to try again.</p>'; $('featured').hidden = true; }
   }
-  init();
+  if (window.afterhoursLauncherActive) window.addEventListener('afterhours:continue', init, {once:true});
+  else init();
 })();
