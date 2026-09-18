@@ -1,32 +1,38 @@
-# Arcade catalogue source records
+# Arcade source records
 
-Catalogue assembled on 2026-09-18 UTC. `catalog.json` contains 240 distinct games: 238 from GameMonetize, Snow Rider 3D from GameDistribution, and Slope from Y8. All 240 game endpoints and all 240 thumbnail URLs returned HTTP 200 or 206 during the recorded check. These are endpoint checks, not 240 gameplay walkthroughs.
+Updated September 18, 2026 UTC. The current catalog contains 262 entries: 8 bundled open-source games, 16 games on existing GitHub Pages sites, and 238 external GameMonetize embeds. GitHub games are the default library.
 
-## Public distribution sources
+## Bundled open-source games
 
-- GameMonetize's [RSS Builder](https://gamemonetize.com/rss-builder) explicitly offers a JSON/RSS game feed for adding games to publishers' websites. The game IDs, titles, categories, instructions, embed URLs, tags, dimensions, and thumbnails were obtained from its [official public feed](https://gamemonetize.com/rssfeed.php?format=json&category=All&type=html5&popularity=mostplayed&company=All&amount=All). The original feed is saved as `gamemonetize-raw.json`. This feed contains 5,001 entries; the catalogue selects 238 of them across categories. Descriptions in the catalogue are short source excerpts capped at 20 words. Some excerpts end with an ellipsis. Broadly recognizable franchise copies were excluded by a title filter, but no independent chain-of-title audit is represented.
-- Y8's [Slope page](https://www.y8.com/games/slope) provides an explicit "Add this game to your web page" section with the exact iframe `https://y8.com/embed/slope`. The game page identifies Y8 Studio, specifies the controls, and contains the supplied thumbnail as `og:image`. The original HTML is saved as `slope-y8.html`; the embed appears near line 2685. Y8 also lists Slope in its games-for-your-website catalogue.
-- GameDistribution's [Snow Rider 3D page](https://gamedistribution.com/games/snow-rider-3d/) embeds official JSON metadata identifying GameBiz, game hash `3b79a8537ebc414fb4f9672a9b8c68c8`, controls, dimensions, and exact image filenames. Its public page JavaScript constructs the HTML5 embed URL from that hash and thumbnail URLs from its own image host. Both are saved (`snow-rider-gd.html`, `gd-game-page.js`). The official [publisher article](https://blog.gamedistribution.com/the-best-online-family-christmas-games/) also recommends Snow Rider 3D for publisher integration.
+2048, Hextris, Astray, Radius Raid, JavaScript Tetris, Snake, Match-3, and Bubble Shooter retain their source, license files, and attribution. Each `dist/games/<id>/attribution.json` records its upstream repository and revision; `ARCADE-NOTICES.md` describes modifications. These files remain the source of truth for licensing.
 
-## Required integration detail
+## Existing GitHub Pages games
 
-For entries where `requiresReferrer` is true (Snow Rider 3D), append the query parameter `gd_sdk_referrer_url` with the exact, current arcade game page URL. For example, set it through `URL.searchParams.set('gd_sdk_referrer_url', window.location.href)` before assigning the iframe URL. Do not substitute the GameDistribution source page as a production referrer. The official GameDistribution page documents this requirement.
+The following repositories already had published Pages endpoints. This update links those endpoints without copying their game code into the arcade repository:
 
-Use the supplied publisher embed. Do not copy or rehost the underlying proprietary game files, remove advertising, change the developer branding, or imply ownership. Publisher availability, ad behavior, regional access and mobile compatibility can change. Provide an external play fallback. No account was created and no agreement was signed as part of this research.
+- [Snow Rider 3D](https://github.com/UBG10001/snowrider3D): game at `https://ubg10001.github.io/snowrider3D/`.
+- [Slope](https://github.com/UBG10001/Slope-Game): game at `https://ubg10001.github.io/Slope-Game/`.
+- [Tiny Fishing](https://github.com/UBG10001/TinyFishing): game at `https://ubg10001.github.io/TinyFishing/`.
+- [Run 3](https://github.com/UBG10001/run3): game at `https://ubg10001.github.io/run3/`.
+- [Flappy Bird Unity](https://github.com/UBG10001/flappyBird.github.io): game at `https://ubg10001.github.io/flappyBird.github.io/`.
+- [Geometry Dash Scratch adaptation](https://github.com/UBG10001/GeometryDash): game at `https://ubg10001.github.io/GeometryDash/`. This is a Scratch adaptation.
+- [Subway Runner WebGL](https://github.com/UBG10001/Subway-Surf): game at `https://ubg10001.github.io/Subway-Surf/`.
+- [Subway Runner Classic](https://github.com/UBG10001/Surfers): game at `https://ubg10001.github.io/Surfers/game.html`. Both subway entries are independent runner games.
+- [MinesweeperJS](https://github.com/finnor/MinesweeperJS): game at `https://finnor.github.io/MinesweeperJS/`.
+- [90s Games](https://github.com/prateek121/90s-games): seven individual game pages for Asteroids, Frogger, Breakout, Pong, Sokoban, Space Invaders, and Vaporwave Escape under `https://prateek121.github.io/90s-games/games/`.
 
-GameMonetize `sourcePage` is the feed builder, and `sourceUrl` is the exact feed proving the entry. Individual game page URLs were not invented. `externalUrl` opens the publisher-provided playable endpoint for these entries. Slope and Snow Rider use their official game pages as external links.
+All 16 selected Pages endpoints returned successful responses. Source inspection found their game cores served from the Pages sites. Slope and Tiny Fishing contain optional ad or analytics integrations; Run 3 includes optional community chat. Source inspection alone cannot prove the complete set of runtime requests. Snow Rider reached its start screen in a browser with all 23 resources observed in that test coming from `ubg10001.github.io`. This is a sampled initial-load check, not a guarantee of access through filtering or a full walkthrough of all games.
 
-## Verification files
+## Publisher sources
 
-- `catalog.json`: final 240 game records, all URLs checked successfully.
-- `http-checks.json`: 480 checks containing URL, final URL, HTTP status, content type, frame headers, and bytes read. None of the checked responses included a blocking X-Frame-Options or Content-Security-Policy header.
-- `failed-checks.json`: empty array; no failures.
-- `catalog-unverified.json`: initial copy, same 240 selections.
+[GameMonetize's RSS Builder](https://gamemonetize.com/rss-builder) provides a JSON/RSS feed for publisher websites. The 238 external game IDs, titles, categories, controls, embed URLs, tags, dimensions, and thumbnails were selected from its [official public feed](https://gamemonetize.com/rssfeed.php?format=json&category=All&type=html5&popularity=mostplayed&company=All&amount=All). Descriptions use short source excerpts capped at 20 words. These entries require publisher servers. Their branding and in-game advertising remain part of the supplied embeds.
 
-The checks verify that an endpoint returned content and its thumbnail was available. A publisher preload screen, consent choice, ad availability, browser support or later runtime error can still affect gameplay. The UI should not claim that every game was manually played.
+The [GameDistribution Snow Rider page](https://gamedistribution.com/games/snow-rider-3d/) identifies GameBiz and supplies the Snow Rider artwork. The [Y8 Slope page](https://www.y8.com/games/slope) identifies Y8 Studio and supplies the Slope artwork. Those two featured thumbnails are now served locally. Their original publisher source and playable endpoints remain in `publisherSourceUrl` and `publisherEmbed` as provenance; the arcade player uses their GitHub Pages URLs.
 
-## Suggested on-site attribution
+The original catalog research checked 240 publisher game endpoints and 240 original thumbnail endpoints, with successful responses and no blocking frame headers. Snow Rider and Slope have since switched to Pages. Historical research artifacts (`gamemonetize-raw.json`, `slope-y8.html`, `snow-rider-gd.html`, `gd-game-page.js`, `http-checks.json`, `failed-checks.json`, and `catalog-unverified.json`) are in the separate research workspace and are not deployed. Endpoint checks do not establish complete gameplay, licensing ownership, mobile support, or future availability.
 
-Games are provided by their respective developers and publishers through GameMonetize, GameDistribution and Y8. All game names, artwork and other assets belong to their respective owners. Publisher branding and in-game ads remain part of the supplied games.
+## Fonts and attribution
 
-Show each game's `provider` next to a link to its `sourceUrl` or `sourcePage`. No fabricated ratings, play counts or download claims are included.
+DM Sans and Space Grotesk were obtained from the primary [Google Fonts repository](https://github.com/google/fonts), under `ofl/dmsans` and `ofl/spacegrotesk`. Fonts and their SIL Open Font License notices are served from `dist/assets/fonts`; the arcade shell has no external font request.
+
+Game names, artwork, and other third-party assets belong to their respective owners. The root MIT license covers the original arcade shell and does not relicense third-party games. The generated `dist/credits.html` links every game's source and all bundled license notices. No ratings, play counts, or download claims are fabricated.

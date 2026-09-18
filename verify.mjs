@@ -11,8 +11,11 @@ for (const g of catalog) {
     if (!fs.existsSync(path.join(root,g.embed))) throw new Error(`Missing game: ${g.embed}`);
     if (!fs.existsSync(path.join(root,'games',g.id,'attribution.json'))) throw new Error(`Missing attribution: ${g.id}`);
   } else if (!g.embed.startsWith('https://')) throw new Error(`Insecure game URL: ${g.id}`);
+  if (g.githubHosted && !new URL(g.embed).hostname.endsWith('.github.io')) throw new Error(`Non-GitHub iframe in GitHub library: ${g.id}`);
+  if ((g.local || g.githubHosted) && g.thumbnail?.startsWith('https://') && !new URL(g.thumbnail).hostname.endsWith('.github.io')) throw new Error(`External thumbnail in GitHub library: ${g.id}`);
   if (g.thumbnail && !g.thumbnail.startsWith('https://') && !fs.existsSync(path.join(root,g.thumbnail))) throw new Error(`Missing thumbnail: ${g.id}`);
 }
 for (const file of ['index.html','credits.html','styles.css','app.js','launcher.js']) if (!fs.existsSync(path.join(root,file))) throw new Error(`Missing ${file}`);
 for (const file of ['app.js','launcher.js']) new vm.Script(fs.readFileSync(path.join(root,file),'utf8'));
+if (/https?:\/\//.test(fs.readFileSync(path.join(root,'styles.css'),'utf8'))) throw new Error('Arcade CSS must not request external assets');
 console.log(`Verified ${catalog.length} unique games, ${catalog.filter(g => g.local).length} local games, required files, thumbnails and arcade JavaScript.`);
