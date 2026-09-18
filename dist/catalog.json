@@ -78,7 +78,11 @@
     "local": true,
     "authors": "Gabriele Cirulli",
     "license": "MIT",
-    "minimumWidth": 0
+    "minimumWidth": 0,
+    "fixedViewport": {
+      "width": 540,
+      "height": 800
+    }
   },
   {
     "id": "hextris",
@@ -153,7 +157,11 @@
     "local": true,
     "authors": "Rembound.com",
     "license": "GPL-3.0-or-later (game JS); MIT (repository assets)",
-    "minimumWidth": 640
+    "minimumWidth": 640,
+    "fixedViewport": {
+      "width": 660,
+      "height": 520
+    }
   },
   {
     "id": "match-3",
@@ -168,7 +176,11 @@
     "local": true,
     "authors": "Rembound.com",
     "license": "GPL-3.0-or-later (game JS); MIT (repository assets)",
-    "minimumWidth": 640
+    "minimumWidth": 640,
+    "fixedViewport": {
+      "width": 660,
+      "height": 520
+    }
   },
   {
     "id": "bubble-shooter",
@@ -183,7 +195,11 @@
     "local": true,
     "authors": "Rembound.com",
     "license": "GPL-3.0-or-later (game JS); MIT (repository assets)",
-    "minimumWidth": 628
+    "minimumWidth": 628,
+    "fixedViewport": {
+      "width": 660,
+      "height": 700
+    }
   },
   {
     "id": "gm-4387",
